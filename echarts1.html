@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 900px;height: 600px;"></div>
+    <script>
+        var myChart=echarts.init(document.getElementById('main'));
+        var option={
+            title:{
+                // 标题
+                text:"每地区蒸发量和降水量",
+                // x轴
+                left:"center",
+                // y轴
+                top:0,
+                // 标题背景颜色
+                backgroundColor:"white",
+                // 文字样式
+                textStyle:{
+                    // 字体颜色
+                    color:"red"
+                },
+                // 副标题
+                subtext:"纯属虚构"
+        },
+            tooltip:{
+                // item 点住柱状图本主才会触发,不写则为item
+                trigger:"axis"  
+            },
+            legend:{
+                // 图例
+                data:["蒸发量","降水量"],
+                left:"left"
+            },
+            toolbox:{
+                // 是否显示图表
+                show:true,
+                feature:{
+                    mark:{
+                        show:true
+                    },
+                    // 是否显示数据视图
+                    dataView:{
+                        // 显示
+                        show:true,
+                        // 为true则为不可修改，false为可修改
+                        readOnly:true
+                    },
+                    // 是否可以转换为别的图表
+                    magicType:{
+                        // 可以
+                        show:true,
+                        // 所转换的图表类型
+                        type:["line","bar"]
+                    },
+                    // 还原
+                    restore:{
+                        show:true
+                    },
+                    // 是否可以储存成图片
+                    saveAsImage:{
+                        show:true
+                    }
+                }
+            },
+            calculable:true,
+            dataZoom:{
+                // 是否执行区域缩放
+               show:true,
+            //    缩放是否实时显示
+               realtime:true,
+            //    区域控制
+               start:20,
+               end:80,
+            },
+            xAxis:[
+                {
+                    type:"category",
+                    data:["1月","2月","3月","4月","5月","六月","七月","八月","九月","十月",]
+                }
+            ],
+            yAxis:[
+                {
+                   type:"value"
+                }
+            ],
+            series:[
+                {
+                    // 名字必须与legend里的data里的名字一样
+                    name:"蒸发量",
+                    type:"bar",
+                    data:[2,3,4,5,6,7,8,9,1,6],
+                },
+                {
+                    name:"降水量",
+                    type:"bar",
+                    data:[2,3,4,5,6,7,8,9,1,6],
+                }
+            ],
+         
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+<style>
+    
+</style>
+</html>

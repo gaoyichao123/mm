@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+   <div id="main" style="width: 600px;height: 400px;"></div>
+</body>
+<script type="text/javascript">
+// 实例化echarts
+    var mychart = echarts.init(document.getElementById('main'));
+    var option ={
+        title:{
+            text:"Echarts 入门实例"
+        },
+        tooltip:{},
+        legend:{
+            data:["销量"]
+        },
+        xAxis:{
+            data:["衬衫","羊毛衫","裤子"]
+        },
+        yAxis:{},
+        series:[{
+            name:"销量",
+            type:"bar",
+            data:[5,35,26]
+        }]
+    };
+    // 导出
+    mychart.setOption(option)
+     
+</script>
+</html>
